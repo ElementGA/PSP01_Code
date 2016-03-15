@@ -1,0 +1,12 @@
+table, td, th {
+    border: .1em solid gray;
+    table-layout: fixed;
+}
+
+col {
+    width: 10em;
+}
+
+ul {
+    list-style-type: none;
+}
