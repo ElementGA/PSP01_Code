@@ -1,97 +1,111 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title>PSP01</title>
-    <link rel="stylesheet" href="psp01.css" />
-	<!-- attempt to load AngularJS from CDN -->	
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-			
-	<!-- if AngularJS fails to load fallback a local version -->
-	<script>
-		window.angular || document.write('<script src="assets/angular.min.js"><\/script>');
-	</script>
-	
+    <title>PSP</title>
+    <link rel="stylesheet" href="psp01.css">
+    <!-- attempt to load AngularJS from CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+    <!-- if AngularJS fails to load fallback a local version -->
+    <script src="psp01.html.0.js"></script>
+
     <script type="text/javascript" src="psp01.js"></script>
   </head>
+
   <body data-ng-app="pspApp" data-ng-controller="pspCtrl">
-    <h2>PSP01</h2>
-    <p>
-      Enter the first name, last name and height of a person:
-    </p>
-    <table>
-      <tr>
-        <td style = "text-align:right;">First Name: </td>
-        <td>
-          <input type="text" data-ng-model="person.firstName" data-ng-required="required"/>
-        </td>
-        <td rowspan="3">
-          <input type="button" value="Enter" data-ng-click="addPerson()" />
-        </td>
-      </tr>
-      <tr>
-        <td style = "text-align:right;">Last Name: </td>
-        <td>
-          <input type="text" data-ng-model="person.lastName" data-ng-required="required" />
-        </td>
-      </tr>
-      <tr>
-        <td style = "text-align:right;">Height: </td>
-        <td>
-          <input type="number" min="0" step="0.01"  data-ng-model="person.height" data-ng-required="required" />
-        </td>
-      </tr>
-    </table>
-    <!--
+    <h2>PSP02</h2>
+    <div hidden>
+      <p>
+        Enter the first name, last name and height of a person:
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <td style="text-align:right;">First Name: </td>
+            <td>
+              <input type="text" data-ng-model="person.firstName" data-ng-required="required">
+            </td>
+            <td rowspan="3">
+              <input type="button" value="Enter" data-ng-click="addPerson()">
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:right;">Last Name: </td>
+            <td>
+              <input type="text" data-ng-model="person.lastName" data-ng-required="required">
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:right;">Height: </td>
+            <td>
+              <input type="number" min="0" step="0.01" data-ng-model="person.height" data-ng-required="required">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--
       Output result	
       -->
-    <br />
-    <hr />
-    <p>
-      Click the display button to see the input data and the result.
-    </p>
-    <p>
-      PS: A list of all the names and heights can be displayed, one per line, followed by the count, sum, and mean height.
-    </p>
-	<h1>Output:</h1>
-    
-    <!-- using list -->
-    <ul data-ng-repeat="aPerson in perCollection.allMyPeople">
+      <br>
+      <hr>
+      <p>
+        Click the display button to see the input data and the result.
+      </p>
+      <p>
+        PS: A list of all the names and heights can be displayed, one per line, followed
+        by the count, sum, and mean height.
+      </p>
+      <h1>Output:</h1>
+
+      <!-- using list -->
+      <ul data-ng-repeat="aPerson in perCollection.allMyPeople">
         <li>
-            <span>{{aPerson.firstName}} {{aPerson.lastName}} {{aPerson.height}}</span>
+          <span>{{aPerson.firstName}} {{aPerson.lastName}} {{aPerson.height}}</span>
         </li>
-    </ul>
-    
-    <!-- using table -->
-    <table>
-        <col />
-        <col />
-        <col />
-		<tr>
-			<td>First Name</td>
-			<td>Last Name</td>
-			<td>Height</td>
-		</tr>
-		<tr data-ng-repeat="aPerson in perCollection.allMyPeople">
-			<td>{{aPerson.firstName}}</td>
-			<td>{{aPerson.lastName}}</td>
-			<td>{{aPerson.height}}</td>
-		</tr>
-	</table>
-    <br />
-    <table>
-        <col />
-        <col />
-        <col />
-		<tr>
-			<td>Count</td>
-			<td>Total Height</td>
-			<td>Mean Height</td>
-		</tr>
-		<tr>
-			<td>{{perCollection.length}}</td>
-			<td>{{perCollection.totalHeight}}</td>
-			<td>{{perCollection.meanHeight}}</td>
-		</tr>
-	</table>
+      </ul>
+
+      <!-- using table -->
+      <table>
+        <colgroup>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+        <tbody>
+          <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Height</td>
+          </tr>
+          <tr data-ng-repeat="aPerson in perCollection.allMyPeople">
+            <td>{{aPerson.firstName}}</td>
+            <td>{{aPerson.lastName}}</td>
+            <td>{{aPerson.height}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <colgroup>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+        <tbody>
+          <tr>
+            <td>Count</td>
+            <td>Total Height</td>
+            <td>Mean Height</td>
+          </tr>
+          <tr>
+            <td>{{perCollection.length}}</td>
+            <td>{{perCollection.totalHeight}}</td>
+            <td>{{perCollection.meanHeight}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </body>
+
 </html>
