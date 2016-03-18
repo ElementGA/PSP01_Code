@@ -13,6 +13,8 @@
     <script type="text/javascript" src="psp01.js"></script>
   </head>
 
+  <!-- data-* attributes is used to store custom data private to the page or application -->
+
   <body data-ng-app="pspApp" data-ng-controller="pspCtrl">
     <h2>PSP02</h2>
     <div hidden>
@@ -106,6 +108,25 @@
         </tbody>
       </table>
     </div>
+
+    <h1>Select text file</h1>
+    <!-- directives are markers on a DOM element that tell AngularJS's HTML compiler to attach a specified behavior to that DOM element (e.g., via event listeners), or even to transform the DOM element and its children. -->
+    <!-- create new directive on-read-file -->
+    <input type="file" data-on-read-file="loadData($fileContent)" />
+    <!-- 
+      ng-if directive removes the HTML element if the expression evaluated to false 
+      <element ng-if="expression"></element>
+    -->
+    <div data-ng-if="fileData">
+      <h2>File content is:</h2>
+      <!-- define preformated text -->
+      <pre>{{ fileData }}</pre>
+      <h2>The mean of data from the file is:</h2>
+      <pre>{{ mean }}</pre>
+      <h2>The standard deviation of data from the file is:</h2>
+      <pre>{{ std }}</pre>
+    </div>
+
   </body>
 
 </html>
